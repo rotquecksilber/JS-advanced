@@ -1,0 +1,30 @@
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+h1 {
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+section {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-content: center;
+}
+
+div {
+	font-weight: 700 ;
+}
