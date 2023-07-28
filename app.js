@@ -1,12 +1,17 @@
 'use strict';
 
-let arrayObj = [
-	{id: 1, name: 'Вася'},
-	{id: 2, name: 'Петя'},
-	{id: 1, name: 'Вася'},
+function getUniqueObjects(array) {
+  const uniqIds = [...new Set(array.map((obj) => obj.id))];
+  const uniqObjects = uniqIds.map((id) => array.find((obj) => obj.id === id));
+  return uniqObjects;
+}
+
+const arrayObj = [
+  { id: 1, name: 'Вася' },
+  { id: 2, name: 'Петя' },
+  { id: 1, name: 'Вася' },
 ];
 
-const uniqueObjects =
-[...new Set(arrayObj.map((obj) => obj.id))].map((id) => arrayObj.find((obj) => obj.id === id));
-console.log(uniqueObjects);
+const uniqArray = getUniqueObjects(arrayObj);
+console.log(uniqArray);
 
