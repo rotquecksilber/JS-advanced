@@ -10,7 +10,7 @@ function isValidFaces(faces) {
   );
 }
 
-function randomDice(dice) {
+function throwDice(dice) {
   const trimmedDice = dice.trim();
   if (!trimmedDice.startsWith('d')) {
     return null;
@@ -26,13 +26,13 @@ function randomDice(dice) {
 }
 
 //test
-console.log(randomDice('d12'));
-console.log(randomDice(' d12 '));
+console.log(throwDice('d12'));
+console.log(throwDice(' d12 '));
 
-console.log(randomDice('d18'));
-console.log(randomDice('d14'));
-console.log(randomDice('d13'));
-console.log(randomDice('d2'));
-console.log(randomDice('d22'));
-console.log(randomDice(' de12 '));
+console.log(throwDice('d18'));
+console.log(throwDice('d14'));
+console.log(throwDice('d13'));
+console.log(throwDice('d2'));
+console.log(throwDice('d22'));
+console.log(throwDice(' de12 '));
 
