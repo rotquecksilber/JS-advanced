@@ -19,6 +19,7 @@ const Orc = function(name) {
 
 
 Orc.prototype = Object.create(Character.prototype);
+Orc.prototype.constructor = Orc;
 
 Orc.prototype.atacks = function () {
 	console.log(`${this.race} ${this.name} atacked with a ${this.weapon}.`)
@@ -33,6 +34,7 @@ const Elf = function(name) {
 
 
 Elf.prototype = Object.create(Character.prototype);
+Elf.prototype.constructor = Elf;
 
 Elf.prototype.atacks = function () {
 	console.log(`${this.race} ${this.name} atacked with a ${this.typeOfSpell} spell.`)
