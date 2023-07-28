@@ -1,39 +1,58 @@
 'use strict';
 
-class Wallet {
-	balance = 0;
+class Character {
+	#race;
+	#name;
+	#language;
+	constructor(race, name, language) {
+	this.#race = race;
+	this.#name = name;
+	this.#language = language;
+	}
 
-	add(summ) {
-		this.balance += summ;
+	speak() {
+		console.log(`My name is ${this.name} and I speak ${this.#language}.`);
 		return this;
 	}
 
-	remove(summ) {
-		this.balance -= summ;
+	get race() {
+		return this.#race;
+	}
+
+	get name() {
+		return this.#name;
+	}
+}
+
+class Orc extends Character {
+	#weapon = 'Doomhammer';
+	constructor(name) {
+	super('Orc', name, 'Orkish');
+	}
+
+	attack() {
+		console.log(`${this.race} ${this.name} atacked with a ${this.#weapon}.`);
 		return this;
 	}
 }
 
-const wallet = new Wallet();
-const res = wallet.add(100).remove(10);
+class Elf extends Character {
+	#typeOfSpell = 'Storm';
+	constructor(name) {
+	super('Elf', name, 'Elvish');
+	}
 
-class Builder {
-	house = {};
-
-	addRoof() {
-		this.house.roof = 'Roof';
+	attack() {
+		console.log(`${this.race} ${this.name} atacked with a ${this.#typeOfSpell} spell.`);
 		return this;
 	}
+} 
 
-	addFloor() {
-		this.house.floor = 'Floor';
-			return this;
-	}
 
-	execute() {
-		return this.house;
-	}
-}
+const orc = new Orc('Thral');
+console.log(orc);
+orc.speak().attack();
 
-const res2 = new Builder().addRoof().addFloor().execute();
-console.log(res2)
+const elf = new Elf('Malfurion');
+console.log(elf);
+elf.speak().attack();
