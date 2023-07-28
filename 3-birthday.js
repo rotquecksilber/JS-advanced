@@ -4,11 +4,8 @@ function validateAge (birthday) {
 	const today = new Date();
 	const usersBirthday = new Date(birthday);
 
-	if((today.getTime() - usersBirthday.getTime()) / stampYears < 14) {
-		return false
-	}
-
-	return true;
+const age = (today.getTime() - usersBirthday.getTime()) / stampYears;
+return age >= 14;
 }
 
 const birthday = '2009-07-17';
@@ -17,22 +14,21 @@ console.log(validateAge(birthday))
 
 
 /* Вариант 2 */
-function validateAge1(birthday) {
-	const age14 = 14;
+function validateAge(birthday, validAge = 14) {
 
 	const today = new Date();
 	const usersBirthday = new Date(birthday);
 
 	const ageDiff = today.getFullYear() - usersBirthday.getFullYear();
-	const hasHadBirthdayThisYear =
+	const isBirthdayThisYearPassed =
     	today.getMonth() > usersBirthday.getMonth() ||
     	(today.getMonth() === usersBirthday.getMonth() &&
       	today.getDate() >= usersBirthday.getDate());
 
-	const age = hasHadBirthdayThisYear ? ageDiff : ageDiff - 1;
+	const age = isBirthdayThisYearPassed ? ageDiff : ageDiff - 1;
 
-	return age >= age14;
+	return age >= validAge;
 }
 
 const birthday1 = '2009-07-17';
-console.log(validateAge1(birthday1));
+console.log(validateAge(birthday1));
